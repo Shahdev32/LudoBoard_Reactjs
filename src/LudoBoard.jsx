@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 
 export default function LudoBoard() {
     const [moves, setMoves] = useState({ blue: 0, green: 0, yellow: 0, red: 0 });
+    let [arr,setArr]=useState("no moves");
+
 
     const handleMove = (color) => {
         setMoves(prevMoves => ({
             ...prevMoves,
             [color]: prevMoves[color] + 1
         }));
+        arr.push("blue moves ");
+        setArr(arr);
+        console.log(arr);
     };
 
     return (
@@ -24,5 +29,8 @@ export default function LudoBoard() {
                 <button style={{ backgroundColor: "red" }} onClick={() => handleMove("red")}>+1</button>
             </div>
         </div>
+
+
+
     );
 }
